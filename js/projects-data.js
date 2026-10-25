@@ -1,134 +1,65 @@
 /**
  * Samuel Juárez (@iamsamy99-bit) - Portfolio Projects Data
- * Curated projects showcasing AI engineering, Vibe Coding, and robust software craftsmanship.
+ *
+ * Regla editorial: solo se listan proyectos que un visitante puede verificar
+ * (sitio en producción o repositorio público) y solo con afirmaciones respaldadas
+ * por el propio código/README. Sin métricas inventadas.
  */
 
 const PROJECTS = [
   {
+    id: 'atendo',
+    title: 'Atendo — Agentes de voz y chat con IA',
+    category: 'ai',
+    categoryLabel: 'Agentes IA & Voz',
+    badge: 'En producción',
+    description: 'Servicio en producción de agentes de voz y chat con IA para negocios en México y Estados Unidos: recepción de llamadas, atención por WhatsApp y un panel multi-cliente con CRM y base de conocimiento (RAG).',
+    vibeStory: 'Landing bilingüe estática, API en Cloudflare Pages Functions sobre D1, panel en React y workers con cron para seguimientos y llamadas salientes. Voz con ElevenLabs Conversational AI, pagos con Stripe y búsqueda semántica con Supabase (pgvector + RLS). El código es privado; el servicio está en vivo.',
+    tags: ['Cloudflare Pages', 'D1', 'Workers', 'React', 'TypeScript', 'ElevenLabs', 'Stripe', 'Supabase pgvector'],
+    liveUrl: 'https://atendo.lat',
+    liveLabel: 'Ver sitio',
+    liveBadge: 'En producción',
+    githubUrl: null
+  },
+  {
+    id: 'nomio',
+    title: 'Nomio — Nómina y asistencias para constructoras',
+    category: 'apps',
+    categoryLabel: 'SaaS & Multiplataforma',
+    badge: 'Código abierto a la vista',
+    description: 'SaaS de nómina, asistencias y cotizaciones para constructoras y PYMES en México. Una sola base de código para web, app de Windows y app de Android.',
+    vibeStory: 'Next.js 15 (App Router) con Supabase (auth + RLS), pagos con Stripe, asistencias offline con IndexedDB y sincronización posterior, exportación a PDF/Excel/CSV y un asistente con la API de Anthropic. Windows con Electron y Android con Capacitor, compilados por GitHub Actions. Repositorio público saneado (sin credenciales ni datos de clientes).',
+    tags: ['Next.js 15', 'Supabase', 'Stripe', 'Electron', 'Capacitor', 'IndexedDB', 'GitHub Actions'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/iamsamy99-bit/nomio'
+  },
+  {
     id: 'nexus-core',
-    title: 'Nexus Core — Portal de Operaciones y Clientes',
+    title: 'Nexus Core — Portal de operaciones y clientes',
     category: 'fintech',
     categoryLabel: 'FinTech & Operaciones',
-    badge: 'Producción & Demo',
-    featured: true,
-    description: 'Panel de control corporativo para gestión financiera y operaciones de clientes. Diseñado bajo directivas anti-slop con arquitectura Double-Bezel de alta precisión, conmutador claro/oscuro instantáneo y Command Palette (⌘K).',
-    vibeStory: 'Prototipado e implementado a máxima velocidad mediante Vibe Coding con Claude Code. Todo el código fue auditado para garantizar cero FOUC, atajos por teclado nativos y procesamiento instantáneo 100% en el cliente.',
-    tags: ['Vanilla JS', 'Modern CSS', 'SPEI', 'SAT CFDI 4.0', 'Double-Bezel UI', 'Command Palette'],
-    metrics: [
-      { label: 'Rendimiento', value: '100 / 100' },
-      { label: 'Tiempo de Carga', value: '< 250ms' },
-      { label: 'Estado', value: 'En Vivo' }
-    ],
+    badge: 'Demo interactiva',
+    description: 'Panel de control para clientes corporativos y operaciones financieras: acciones en un clic (transferencias SPEI, facturación CFDI 4.0, extractos), gráfico interactivo con filtros por periodo y tabla con búsqueda en vivo.',
+    vibeStory: 'HTML, CSS y JavaScript sin dependencias. Modo claro/oscuro con atajo de teclado y sin parpadeo inicial, paleta de comandos (Ctrl/⌘ + K) y contenedores de doble bisel. Los datos de la demo son ficticios.',
+    tags: ['Vanilla JS', 'CSS moderno', 'SPEI', 'CFDI 4.0', 'Command Palette'],
     liveUrl: 'https://iamsamy99-bit.github.io/panel-clientes/',
+    liveLabel: 'Ver demo',
+    liveBadge: 'Demo en vivo',
     githubUrl: 'https://github.com/iamsamy99-bit/panel-clientes'
   },
   {
-    id: 'atendo',
-    title: 'Atendo — Agentes Autónomos de Voz y Chat con IA',
-    category: 'ai',
-    categoryLabel: 'Agentes IA & Voz',
-    badge: 'Ecosistema Cloudflare',
-    featured: true,
-    description: 'Plataforma empresarial de atención automatizada mediante agentes conversacionales por voz en tiempo real y bots de WhatsApp integrados a un panel de control con base de datos distribuida en el edge.',
-    vibeStory: 'Diseño integral de prompts de inferencia de audio y orquestación de agentes con Cloudflare Workers, Pages y D1 SQL para lograr respuestas telefónicas humanizadas con latencia menor a 800ms.',
-    tags: ['Cloudflare Pages', 'D1 SQL', 'VoIP / SIP', 'WebSockets', 'Voice Agents', 'Workers AI'],
-    metrics: [
-      { label: 'Latencia Voz', value: '< 800ms' },
-      { label: 'Arquitectura', value: 'Serverless Edge' },
-      { label: 'Canales', value: 'Voz + WhatsApp' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/atendo-web'
-  },
-  {
-    id: 'ai-home-agent',
-    title: 'AI Home Agent — Orquestador de Agentes Locales',
+    id: 'sam-voip',
+    title: 'Sam VoIP — Consultoría bilingüe en VoIP y redes',
     category: 'systems',
-    categoryLabel: 'Sistemas & Automatización',
-    badge: 'Local First & Linux',
-    featured: true,
-    description: 'Agente nativo de sistema para Linux Mint / XFCE que automatiza y orquesta herramientas de IA (Claude Code, Antigravity, Codex), sincronización sin cloud lock-in mediante rclone y organización inteligente de Google Photos.',
-    vibeStory: 'Construido para solucionar la fricción de arrancar entornos de IA y respaldar archivos personales respetando la soberanía de datos (tokens con permisos 0600 locales y cero telemetría externa).',
-    tags: ['Python 3', 'Linux Mint / XFCE', 'rclone', 'Claude Code', 'Antigravity', 'Local-First'],
-    metrics: [
-      { label: 'Privacidad', value: '100% Local' },
-      { label: 'Dependencias Cloud', value: 'Cero' },
-      { label: 'S.O.', value: 'Linux XFCE' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/ai-home-agent'
-  },
-  {
-    id: 'trading-bot',
-    title: 'Alpaca Trading Bot — Swing Trading Asistido por LLMs',
-    category: 'fintech',
-    categoryLabel: 'FinTech & IA',
-    badge: 'Paper Trading',
-    featured: false,
-    description: 'Sistema autónomo de swing trading que interactúa con la API de Alpaca Markets. Emplea razonamiento de Claude para evaluar el sentimiento de noticias financieras y correlacionarlo con indicadores técnicos de volatilidad.',
-    vibeStory: 'Desarrollado para probar la toma de decisiones probabilísticas de modelos de lenguaje en finanzas, aplicando límites estrictos de stop-loss matemáticos que la IA no puede vulnerar.',
-    tags: ['Python', 'Claude API', 'Alpaca Markets', 'Algorithmic Trading', 'Risk Management'],
-    metrics: [
-      { label: 'Motor', value: 'Claude 3.5' },
-      { label: 'Gestión Riesgo', value: 'Guardarraíles Hard' },
-      { label: 'Ejecución', value: 'Paper Trading' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/trading-bot'
-  },
-  {
-    id: 'bakery-pwa',
-    title: 'BakeryOS — Sistema de Gestión para Panaderías',
-    category: 'apps',
-    categoryLabel: 'PWA & Web Apps',
-    badge: 'Offline-First',
-    featured: false,
-    description: 'Aplicación web progresiva (PWA) de alta velocidad para la operación diaria de panaderías y obradores. Monitoreo de recetas, cálculo automático de costos e insumos y control de mermas.',
-    vibeStory: 'Diseñada pensando en la realidad operativa: cocinas con conexión inestable. Utiliza Service Workers avanzados y almacenamiento IndexedDB para operar con total fluidez sin internet.',
-    tags: ['PWA', 'IndexedDB', 'Service Workers', 'Vanilla JS', 'Offline-First'],
-    metrics: [
-      { label: 'Conectividad', value: '100% Offline' },
-      { label: 'Instalable', value: 'PWA Nativa' },
-      { label: 'Foco', value: 'Costos & Mermas' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/bakery-pwa'
-  },
-  {
-    id: 'crappy-email-removal',
-    title: 'Crappy Email Removal — Daemon de Privacidad & Purga',
-    category: 'systems',
-    categoryLabel: 'Seguridad & Edge',
-    badge: 'Privacidad Legal',
-    featured: false,
-    description: 'Daemon de limpieza masiva de bandejas de entrada de Gmail, desuscripción automática con un clic y envío automatizado de solicitudes de eliminación de datos bajo normativas LFPDPPP y GDPR a data brokers.',
-    vibeStory: 'Automatización de defensa de privacidad digital creada para eliminar el ruido comercial recurrente, respaldada en Cloudflare D1 para rastrear el cumplimiento legal de cada remitente.',
-    tags: ['Cloudflare Workers', 'D1 Database', 'Gmail API', 'LFPDPPP / GDPR', 'Automation'],
-    metrics: [
-      { label: 'Propósito', value: 'Zero Spam' },
-      { label: 'Legal Tech', value: 'GDPR / LFPDPPP' },
-      { label: 'Base de Datos', value: 'Cloudflare D1' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/crappy-email-removal'
-  },
-  {
-    id: 'nomio-releases',
-    title: 'Nomio — Software de Nómina para Construcción',
-    category: 'apps',
-    categoryLabel: 'Software de Escritorio',
-    badge: 'Industria MX',
-    featured: false,
-    description: 'Plataforma de cálculo de nómina especializada para la industria de la construcción en México, adaptada a pagos semanales por destajo, horas extra y control de personal en obra.',
-    vibeStory: 'Resolviendo una necesidad no atendida por los ERPs genéricos con una herramienta ligera y directa para contratistas e ingenieros civiles.',
-    tags: ['Windows App', 'Fiscal MX', 'Destajos', 'Release Management'],
-    metrics: [
-      { label: 'Sector', value: 'Construcción' },
-      { label: 'Región', value: 'México (SAT/IMSS)' },
-      { label: 'Distribución', value: 'Releases Oficiales' }
-    ],
-    liveUrl: null,
-    githubUrl: 'https://github.com/iamsamy99-bit/nomio-releases'
+    categoryLabel: 'Consultoría & Redes',
+    badge: 'Sitio público',
+    description: 'Sitio de consultoría bilingüe (ES/EN) sobre diagnóstico de SIP/RTP, agentes de voz con IA y hardware Mac.',
+    vibeStory: 'Sitio estático publicado en GitHub Pages que presenta servicios de telefonía IP y redes.',
+    tags: ['SIP / RTP', 'VoIP', 'Agentes de voz', 'HTML estático', 'GitHub Pages'],
+    liveUrl: 'https://iamsamy99-bit.github.io/sam-voip-consulting/',
+    liveLabel: 'Ver sitio',
+    liveBadge: 'En vivo',
+    githubUrl: 'https://github.com/iamsamy99-bit/sam-voip-consulting'
   }
 ];
 

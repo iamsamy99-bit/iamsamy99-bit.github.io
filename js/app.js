@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const liveBadgeHtml = project.liveUrl 
         ? `<span class="project-badge-live">
              <span class="status-dot" style="width: 6px; height: 6px;"></span>
-             Demo en Vivo
+             ${project.liveBadge || 'En vivo'}
            </span>` 
         : '';
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const liveBtnHtml = project.liveUrl ? `
         <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-apple btn-primary" style="padding: 0.45rem 1rem; font-size: 0.84rem;">
-          <span>Demo en Vivo</span>
+          <span>${project.liveLabel || 'Ver sitio'}</span>
           <span class="trailing-icon-wrap" aria-hidden="true" style="width: 20px; height: 20px;">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
