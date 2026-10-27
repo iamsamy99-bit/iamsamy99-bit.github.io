@@ -19,13 +19,24 @@
 </head>
 <body>
 
-  <!-- Floating Island Navigation (Apple Translucent Chrome) -->
+  <!-- Ethereal Ambient Living Mesh (Constant Background Motion) -->
+  <div class="ambient-mesh-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+  </div>
+
+  <!-- Floating Island Navigation (Apple Translucent Chrome + Live Clock) -->
   <header class="island-nav-wrapper" role="banner">
     <nav class="island-nav" aria-label="Navegación principal">
       <a href="#" class="brand-badge" aria-label="Samuel Juárez inicio">
-        <span class="status-dot" aria-hidden="true"></span>
         <span>Samuel Juárez</span>
       </a>
+
+      <!-- Live Clock & Status Bead -->
+      <span class="live-clock-pill" aria-label="Estado y hora local de CDMX">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="live-clock">CDMX --:--:--</span>
+      </span>
 
       <div class="nav-links">
         <a href="#proyectos" class="nav-item">Proyectos</a>
@@ -53,40 +64,75 @@
   </header>
 
   <main id="main-content">
-    <!-- Hero Section -->
+    <!-- Hero Section (Asymmetric Split: Human Vision + Live Vibe Terminal) -->
     <section class="hero-section" aria-labelledby="hero-heading">
-      <div class="eyebrow-pill">
-        <span class="status-dot" style="width: 6px; height: 6px;" aria-hidden="true"></span>
-        <span>Software Engineer &amp; Vibe Coder</span>
-      </div>
+      <div class="hero-grid">
+        <!-- Left Column: Manifesto & Narrative -->
+        <div class="hero-text-col">
+          <div class="eyebrow-pill">
+            <span class="status-dot" style="width: 6px; height: 6px;" aria-hidden="true"></span>
+            <span>Software Engineer &amp; Vibe Coder</span>
+          </div>
 
-      <h1 id="hero-heading" class="hero-title">
-        <span class="gradient-text">Construyendo software real</span> con criterio humano y aceleración por IA.
-      </h1>
+          <h1 id="hero-heading" class="hero-title">
+            <span class="gradient-text">Construyendo software real</span> con criterio humano y aceleración por IA.
+          </h1>
 
-      <p class="hero-description">
-        De la arquitectura de sistemas y las reglas de negocio a la producción en tiempo récord. Orquesto modelos de lenguaje y agentes autónomos (<span class="mono" style="color: #93c5fd;">Claude Code</span>, <span class="mono" style="color: #93c5fd;">Antigravity</span>, <span class="mono" style="color: #93c5fd;">Codex</span>) con rigor técnico, diseño anti-slop y seguridad de nivel industrial.
-      </p>
+          <p class="hero-description">
+            De la arquitectura de sistemas y las reglas de negocio a la producción en tiempo récord. Orquesto modelos de lenguaje y agentes autónomos (<span class="mono" style="color: #93c5fd;">Claude Code</span>, <span class="mono" style="color: #93c5fd;">Antigravity</span>, <span class="mono" style="color: #93c5fd;">Codex</span>) con rigor técnico, diseño anti-slop y seguridad de nivel industrial.
+          </p>
 
-      <div class="hero-actions">
-        <a href="#proyectos" class="btn-apple btn-primary">
-          <span>Explorar Proyectos</span>
-          <span class="trailing-icon-wrap" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </span>
-        </a>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn-apple btn-primary">
+              <span>Explorar Proyectos</span>
+              <span class="trailing-icon-wrap" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </span>
+            </a>
 
-        <a href="https://www.linkedin.com/in/samueljuarezg99/" target="_blank" rel="noopener noreferrer" class="btn-apple btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-          <span>Conectar en LinkedIn</span>
-        </a>
+            <a href="https://www.linkedin.com/in/samueljuarezg99/" target="_blank" rel="noopener noreferrer" class="btn-apple btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>Conectar en LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Perpetual Vibe Terminal Simulator -->
+        <div class="hero-terminal-col">
+          <div class="vibe-terminal-frame">
+            <div class="vibe-terminal-inner">
+              <div class="terminal-topbar">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="terminal-dot dot-red"></span>
+                  <span class="terminal-dot dot-yellow"></span>
+                  <span class="terminal-dot dot-green"></span>
+                </div>
+                <div class="terminal-title-text mono">vibe-agent · zsh</div>
+                <div class="project-badge-live" style="font-size: 0.65rem; padding: 0.15rem 0.5rem;">
+                  <span class="status-dot" style="width: 5px; height: 5px;"></span>
+                  LIVE AGENT
+                </div>
+              </div>
+
+              <!-- Interactive Scenario Switchers -->
+              <div id="terminal-scenarios" class="terminal-chip-bar" role="tablist" aria-label="Escenarios de prueba">
+                <!-- Injected via js/vibe-terminal.js -->
+              </div>
+
+              <!-- Real-time code execution screen -->
+              <div id="vibe-terminal-body" class="terminal-screen" aria-live="polite">
+                <!-- Streaming logs typed in real time -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -191,6 +237,7 @@
   </footer>
 
   <script src="js/projects-data.js"></script>
+  <script src="js/vibe-terminal.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,44 +1,70 @@
 /**
  * Samuel Juárez (@iamsamy99-bit) - Portfolio Application Controller
- * Handles dynamic project rendering, category filtering, tactile interaction states,
- * and accessibility features.
+ * Handles dynamic project rendering, live system clock, magnetic spotlights,
+ * tactile interaction states, and accessibility features.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const projectsContainer = document.getElementById('projects-container');
-  const filterButtons = document.querySelectorAll('.filter-btn');
+
+  // Live System Clock in Navigation Island
+  function initLiveClock() {
+    const clockEl = document.getElementById('live-clock');
+    if (!clockEl) return;
+
+    function update() {
+      try {
+        const now = new Date();
+        const options = {
+          timeZone: 'America/Mexico_City',
+          hour12: false,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+        const timeStr = now.toLocaleTimeString('es-MX', options);
+        clockEl.textContent = `CDMX ${timeStr} CST`;
+      } catch (err) {
+        clockEl.textContent = '● SISTEMA ACTIVO';
+      }
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
 
   // Render Projects
-  function renderProjects(filter = 'all') {
+  function renderProjects() {
     if (!projectsContainer || typeof PROJECTS === 'undefined') return;
-
-    const filtered = filter === 'all' 
-      ? PROJECTS 
-      : PROJECTS.filter(p => p.category === filter);
 
     projectsContainer.innerHTML = '';
 
-    if (filtered.length === 0) {
-      projectsContainer.innerHTML = `
-        <div class="col-span-full py-12 text-center text-slate-400">
-          <p>No se encontraron proyectos en esta categoría.</p>
-        </div>
-      `;
-      return;
-    }
-
-    filtered.forEach(project => {
+    PROJECTS.forEach((project, idx) => {
       const cardOuter = document.createElement('article');
-      cardOuter.className = 'double-bezel-outer';
+      // The first / featured project gets the perpetual illuminated border beam
+      const isFeatured = idx === 0 || project.id === 'atendo';
+      cardOuter.className = `double-bezel-outer ${isFeatured ? 'border-beam-card' : ''}`;
       cardOuter.setAttribute('data-category', project.category);
       cardOuter.setAttribute('aria-label', project.title);
+
+      // Interactive magnetic spotlight tracking
+      cardOuter.addEventListener('pointermove', (e) => {
+        const rect = cardOuter.getBoundingClientRect();
+        cardOuter.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        cardOuter.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+
+      cardOuter.addEventListener('pointerleave', () => {
+        cardOuter.style.removeProperty('--mouse-x');
+        cardOuter.style.removeProperty('--mouse-y');
+      });
 
       const liveBadgeHtml = project.liveUrl 
         ? `<span class="project-badge-live">
              <span class="status-dot" style="width: 6px; height: 6px;"></span>
              ${project.liveBadge || 'En vivo'}
            </span>` 
-        : '';
+        : (project.badge ? `<span class="project-category-chip">${project.badge}</span>` : '');
 
       const tagsHtml = project.tags.map(tag => 
         `<span class="tech-tag">${tag}</span>`
@@ -99,23 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter Buttons Handling
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-      
-      const filterValue = btn.getAttribute('data-filter') || 'all';
-      renderProjects(filterValue);
-    });
-  });
-
-  // Initial Render
-  renderProjects('all');
+  // Initialize
+  initLiveClock();
+  renderProjects();
 
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
